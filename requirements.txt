@@ -1,0 +1,13 @@
+tensorflow
+Pillow
+numpy
+pandas
+matplotlib
+streamlit
+streamlit-drawable-canvas
+keras
+opencv-python
+# Install pyserial in VS Code
+ pyserial
+ pyfirmata
+opencv-python

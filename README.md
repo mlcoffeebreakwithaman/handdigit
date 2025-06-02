@@ -1,24 +1,79 @@
 # Handwritten Digit Recognition using Convolutional Neural Networks (CNN)
-This project demonstrates Handwritten-Digit(0-9)-Recognition using (CNN) Convolutional Neural Networks.
-## Dataset
-The project uses the famous MNIST dataset, which consists of 60,000 labeled images of handwritten digits for training and 10,000 labeled images for testing. Each image is 28x28 pixels in size and grayscale, with pixel values ranging from 0 to 255. The dataset is preprocessed to normalize pixel values.
-## Model Architecture
-* The first layer is a convolutional layer (Conv2D) with 32 filters, a kernel size of (3, 3), and a ReLU activation function. It takes an input image of shape (28, 28, 1) where 1 represents grayscale channel.
-* The output from the convolutional layer is then passed through a max pooling layer (MaxPooling2D) with a pool size of (2, 2), which helps reduce spatial dimensions while preserving important features.
-* Another convolutional layer with 64 filters, a kernel size of (3, 3), and a ReLU activation function is added, followed by another max pooling layer with a pool size of (2, 2).
-* The output from the last max pooling layer is then flattened into a 1D array using a Flatten layer, which prepares the data for the fully connected layers.
-* Two fully connected layers (Dense) are added on top of the flattened output. The first dense layer has 128 units with a ReLU activation function, while the second dense layer has 10 units with a softmax activation function, which gives the probability of each class (0 to 9) being the correct digit.
 
-## Model Evaluation
-![1](https://user-images.githubusercontent.com/97530517/232014919-390ab15f-67e6-4a63-bef3-9005d795135f.PNG)
+This project is a custom implementation of a Handwritten Digit Recognition system using Convolutional Neural Networks (CNNs). It allows users to draw digits on a virtual canvas and get real-time predictions.
 
-## Model Deployment
-### Streamlit Front-end
-The Streamlit front-end provides a simple and interactive web-based user interface for users to draw digit and get predictions from the trained CNN model.
+**Author:** Your Name  
+**Contact:** your.email@example.com
 
-1. Draw a digit on a canvas: Users can use the mouse or touchpad to draw a digit on a canvas provided by the Streamlit app. The drawn image is then passed to the trained CNN model for prediction.
-2. Display prediction results: The Streamlit app displays the predicted digit.
-3. [Link to Streamlit Application](https://vinay2022-hand-written-digit-recognition.streamlit.app/)
-## Sample Output
-![full](https://user-images.githubusercontent.com/97530517/232018256-94749378-9d7b-4b33-a0a9-376bd2862392.PNG)
-![image (1)](https://user-images.githubusercontent.com/97530517/232014753-7cd8a16c-1b42-4a5c-b67b-27998331ef8e.png)
+---
+
+## 🧠 Dataset
+
+The project uses the MNIST dataset, which contains:
+
+- **60,000** labeled training images
+- **10,000** labeled test images
+
+Each image is:
+- Grayscale
+- 28x28 pixels
+- Pixel values normalized between 0 and 1
+
+---
+
+## 🏗️ Model Architecture
+
+The CNN model is built using Keras/TensorFlow and consists of:
+
+- **Conv2D Layer 1**: 32 filters, (3x3) kernel, ReLU activation  
+- **MaxPooling2D Layer 1**: (2x2) pool size  
+- **Conv2D Layer 2**: 64 filters, (3x3) kernel, ReLU activation  
+- **MaxPooling2D Layer 2**: (2x2) pool size  
+- **Flatten Layer**: Converts 2D data to 1D  
+- **Dense Layer 1**: 128 units, ReLU activation  
+- **Dense Layer 2 (Output)**: 10 units, softmax activation (for digits 0–9)
+
+---
+
+## 📊 Model Evaluation
+
+The model is trained and tested using MNIST data, and shows strong accuracy on unseen digit samples.
+
+![Evaluation Graph](https://user-images.githubusercontent.com/97530517/232014919-390ab15f-67e6-4a63-bef3-9005d795135f.PNG)
+
+---
+
+## 🌐 Model Deployment
+
+### Streamlit Front-End
+
+A lightweight web UI using [Streamlit](https://streamlit.io/) for digit prediction:
+
+- 🖌️ Draw any digit (0–9) using your mouse/touchpad
+- 📤 The digit is processed and sent to the model
+- ✅ The predicted digit is displayed in real time
+
+📎 Sample App Screenshot:
+![UI Example](https://user-images.githubusercontent.com/97530517/232018256-94749378-9d7b-4b33-a0a9-376bd2862392.PNG)
+
+![Canvas](https://user-images.githubusercontent.com/97530517/232014753-7cd8a16c-1b42-4a5c-b67b-27998331ef8e.png)
+
+---
+
+## 🚀 How to Run
+
+1. Clone the repo:
+ 
+   git clone https://github.com/mlcoffeebreakwithaman/handdigit.git
+   cd handwritten-digit-recognition
+
+2. Set up a virtual environment and install dependencies:
+
+
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+Run the Streamlit app:
+
+Run the Streamlit app:
+streamlit run app.py
